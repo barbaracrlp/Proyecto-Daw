@@ -10,7 +10,7 @@
     @else
     <div class="row">
         @foreach ($designs as $design)
-        <div class="col-md-4">
+        {{-- <div class="col-md-4">
             <div class="card mb-4">
                 <div class="position-relative">
                     <img src="{{ Storage::url($design->file_path) }}" class="card-img-top" alt="{{ $design->name }}">
@@ -20,7 +20,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
+        @include('designs.onlycard',$design)
         @endforeach
     </div>
     @endif
