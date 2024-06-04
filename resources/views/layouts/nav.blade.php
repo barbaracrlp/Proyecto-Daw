@@ -33,10 +33,10 @@
                 @auth
                     <form style="display:inline;" method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <a href="#" onclick="this.closest('form').submit()">Logout</a>
+                        <a href="#"  class="nav-link"  onclick="this.closest('form').submit()"><strong>Log out</strong></a>
                     </form>
                 @else
-                    <a class="nav-link" href="{{ route('login') }}">Log In</a>
+                    <a class="nav-link"  href="{{ route('login') }}">Log In</a>
                 @endauth
             </li>
 

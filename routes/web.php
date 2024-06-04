@@ -16,9 +16,9 @@ Route::get('/', function () {
 });
 
 
-Route::get('/home', 'DesignController@index')->name('home');
+// Route::get('/home', 'DesignController@index')->name('home');
 
-// Route::get('/home', [DesignController::class, 'index'])->name('home');
+Route::get('/home', [DesignController::class, 'index'])->name('home');
 
 
 

@@ -18,7 +18,7 @@
     </header>
     <main class="container">
         @yield('content')
-        <button class="btn" style="background-color: #ccccb3;" onclick="goBack()">Back..</button>
+        <button class="btn" style="background-color: #BDC3C7;;" onclick="goBack()">Back..</button>
     </main>
     <script>
         function goBack() {
