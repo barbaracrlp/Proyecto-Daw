@@ -1,5 +1,5 @@
-@extends('template')
 
+@extends('template')
 @section('content')
     <div class="container mt-5">
         <div class="row justify-content-center">
@@ -13,14 +13,23 @@
                     <h1 class="mb-4">{{ $design->name }}</h1>
                     <p class="price" style="font-size: 24px; font-weight: bold;">{{ $design->price }} €</p>
                     <p class="stock" style="margin-top: 10px;">Stock: {{ $design->stock }}</p>
-                    <p class="expiration" style="margin-top: 10px;">Expires on: {{ $design->expiration }}</p>
-                    <a href="{{ route('designs.index') }}" class="btn btn-dark mt-4">Back to Designs</a>
+                    <!-- Display expiration date if it exists -->
+                    @if ($design->expiration)
+                        <p class="expiration" style="margin-top: 10px;">Expires on: {{ $design->expiration }}</p>
+                    @endif
+                    <!-- Button to add design to cart -->
+                    <form method="POST" action="{{ route('cartItem.addToCart') }}">
+                        @csrf
+                        <input type="hidden" name="design_id" value="{{ $design->id }}">
+
+                        <button type="submit" class="btn mt-4">Add to Cart</button>
+                    </form>
+                    <a href="{{ route('designs.index') }}" class="btn btn-dark mt-2">Back to Designs</a>
                 </div>
             </div>
         </div>
     </div>
 @endsection
-
 
 
 

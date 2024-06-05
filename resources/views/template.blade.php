@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/app/portada.css') }}">
     <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
     @livewireStyles
+    @livewireScripts
 </head>
 
 <body>

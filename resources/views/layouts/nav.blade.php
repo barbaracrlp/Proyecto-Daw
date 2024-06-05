@@ -43,6 +43,10 @@
             <li class="nav-item">
                 <a class="nav-link" href="/admin" target="_blank">for Designers</a>
             </li>
+
+            <li class="nav-item">
+                <livewire:cart-dropdown/>
+            </li>
         </ul>
     </div>
 </nav>

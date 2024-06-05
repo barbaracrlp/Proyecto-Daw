@@ -47,4 +47,7 @@ Route::resource('types', TypeController::class);
 Route::resource('carts', CartController::class);
 Route::resource('cart-items', CartItemController::class);
 
+Route::post('/cart/add', [CartItemController::class, 'addToCart'])->name('cartItem.addToCart');
+
+
 require __DIR__.'/auth.php';
