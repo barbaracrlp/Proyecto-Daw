@@ -29,12 +29,10 @@ class CartDropdown extends Component
     }
 
 
-
-
-
-
     public function render()
     {
-        return view('livewire.cart-dropdown');
+        return view('livewire.cart-dropdown', [
+            'cart' => $this->cart,
+        ]);
     }
 }

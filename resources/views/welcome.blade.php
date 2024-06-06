@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/app/portada.css') }}">
     @livewireStyles
     @livewireScripts
+    @livewire('cart-dropdown')
 </head>
 
 <body>

@@ -18,11 +18,9 @@
                         <p class="expiration" style="margin-top: 10px;">Expires on: {{ $design->expiration }}</p>
                     @endif
                     <!-- Button to add design to cart -->
-                    <form method="POST" action="{{ route('cartItem.addToCart') }}">
+                    <form action="{{ route('cart.add', $design->id) }}" method="POST">
                         @csrf
-                        <input type="hidden" name="design_id" value="{{ $design->id }}">
-
-                        <button type="submit" class="btn mt-4">Add to Cart</button>
+                        <button type="submit" class="btn btn-primary">Add to Cart</button>
                     </form>
                     <a href="{{ route('designs.index') }}" class="btn btn-dark mt-2">Back to Designs</a>
                 </div>

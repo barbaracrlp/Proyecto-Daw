@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('state')->default('created');
-            $table->decimal('totalPrice',8, 2);
+            $table->decimal('totalPrice',8, 2)->default(0);
             $table->timestamps();
         });
     }

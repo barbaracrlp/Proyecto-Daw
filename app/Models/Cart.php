@@ -16,7 +16,7 @@ class Cart extends Model
         'totalPrice',
     ];
 
-    public function itemcarts():HasMany
+    public function cartItems():HasMany
     {
         return $this->hasMany(CartItem::class);
     }
@@ -26,5 +26,11 @@ class Cart extends Model
     {
         return $this->belongsTo(User::class);
 
+    }
+
+    public function updateTotal(){
+        $total=$this->cartItems()->sum('total');
+        $this->totalPrice=$total;
+        $this->save();
     }
 }

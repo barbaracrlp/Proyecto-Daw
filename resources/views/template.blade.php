@@ -11,9 +11,12 @@
     <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
     @livewireStyles
     @livewireScripts
+    {{-- @livewire('cart-dropdown') --}}
+    @livewire('cart-dropdown')
 </head>
 
 <body>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
     <header>
         @include('layouts.nav')
     </header>

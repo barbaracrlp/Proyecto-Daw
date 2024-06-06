@@ -42,26 +42,30 @@ class CartItemController extends Controller
     //     }
     // }
 
-    public function addToCart(Request $request)
-    {
-        $request->validate([
-            'design_id' => 'required|exists:designs,id',
-        ]);
-        $design=Design::findOrFail($request->design_id);
+    // public function addToCart(Request $request)
+    // {
+    //     $request->validate([
+    //         'design_id' => 'required|exists:designs,id',
+    //     ]);
+    //     $design=Design::findOrFail($request->design_id);
 
-        $total=$design->price;
-        $cart = Cart::firstOrCreate(['user_id' => Auth::id()]);
-        $cartItem = CartItem::updateOrCreate(
-            ['cart_id' => $cart->id, 'design_id' => $request->design_id],
-            ['quantity' => 1,'price_unit'=>$design->price,
-            'total'=>$total]
-        );
+    //     $total=$design->price;
+    //     $cart = Cart::firstOrCreate(['user_id' => Auth::id()]);
 
-        $design->stock -= $request->quantity;
-        $design->save();
-        dd('se guarda ');
-        return redirect()->route('cart.index')->with('success', 'Item added to cart.');
-    }
+    //     $cartItem = CartItem::updateOrCreate(
+    //         ['cart_id' => $cart->id, 'design_id' => $request->design_id],
+    //         ['quantity' => 1,'price_unit'=>$design->price,
+    //         'total'=>$total]
+    //     );
+
+    //     //
+    //     $cart->updateTotal();
+
+    //     $design->stock -= $request->quantity;
+    //     $design->save();
+    //     dd('se guarda ');
+    //     return redirect()->route('cart.index')->with('success', 'Item added to cart.');
+    // }
 
     public function update(Request $request, CartItem $cartItem)
     {
@@ -78,6 +82,7 @@ class CartItemController extends Controller
         // Calculate the difference in quantity
         $quantityDifference = $newQuantity - $oldQuantity;
 
+        $cartItem->cart->updateTotal();
         // Update the stock of the associated design
         $cartItem->design->stock -= $quantityDifference;
         $cartItem->design->save();
@@ -91,7 +96,7 @@ class CartItemController extends Controller
 
         $cartItem->design->stock += $quantity;
         $cartItem->design->save();
-
+        $cartItem->cart->updateTotal();
         $cartItem->delete();
 
         return redirect()->route('cart.index')->with('success', 'Item removed from cart.');

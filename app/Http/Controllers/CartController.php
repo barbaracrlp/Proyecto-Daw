@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cart;
+use App\Models\CartItem;
+use App\Models\Design;
 use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
@@ -13,14 +15,27 @@ class CartController extends Controller
         return view('cart.index', compact('cart'));
     }
 
+    // public function checkout()
+    // {
+    //     if (Auth::check()) {
+    //         // Lógica para proceder al checkout
+    //         return view('cart.checkout');
+    //     } else {
+    //         return redirect()->route('login')->with('message', 'Please login to proceed with the purchase.');
+    //     }
+    // }
     public function checkout()
     {
-        if (Auth::check()) {
-            // Lógica para proceder al checkout
-            return view('cart.checkout');
-        } else {
-            return redirect()->route('login')->with('message', 'Please login to proceed with the purchase.');
+        $user = Auth::user();
+        $cart = Cart::where('user_id', $user->id)->first();
+
+        if (!$cart || $cart->cartItems->count() == 0) {
+            return redirect()->back()->with('error', 'Your cart is empty.');
         }
+
+        // Implement your checkout logic here
+
+        return view('cart.checkout', compact('cart'));
     }
 
     public function purchase(Request $request)
@@ -29,5 +44,40 @@ class CartController extends Controller
         // Implementar lógica de compra aquí, como procesar el pago y vaciar el carrito
 
         return redirect()->route('cart.index')->with('success', 'Purchase completed successfully.');
+    }
+
+    public function addToCart(Design $design)
+    {
+        $user = Auth::user();
+
+        // Check if the user has a cart, if not, create one
+        $cart = Cart::firstOrCreate(
+            ['user_id' => $user->id],
+            ['totalPrice' => 0]
+        );
+
+        // Check if the design is already in the cart
+        $cartItem = $cart->cartItems()->where('design_id', $design->id)->first();
+
+        if ($cartItem) {
+            // Update quantity and total price if it exists
+            $cartItem->quantity += 1;
+            $cartItem->total = $cartItem->quantity * $cartItem->price_unit;
+            $cartItem->save();
+        } else {
+            // Create a new cart item if it does not exist
+            CartItem::create([
+                'cart_id' => $cart->id,
+                'design_id' => $design->id,
+                'quantity' => 1,
+                'price_unit' => $design->price,
+                'total' => $design->price,
+            ]);
+        }
+
+        // Update the total price of the cart
+        $cart->updateTotal();
+
+        return redirect()->back()->with('success', 'Item added to cart successfully!');
     }
 }

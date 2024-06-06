@@ -11,7 +11,7 @@ class CartItem extends Model
     use HasFactory;
 
     protected $fillable=[
-        'id_cart',
+        'cart_id',
         'design_id',
         'quantity',
         'price_unit',
