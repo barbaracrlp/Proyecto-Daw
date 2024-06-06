@@ -48,6 +48,10 @@ class CartController extends Controller
 
     public function addToCart(Design $design)
     {
+
+        if($design->stock==0){
+            return redirect()->back()->with('sorry', 'Item out of stock');
+        }
         $user = Auth::user();
 
         // Check if the user has a cart, if not, create one
@@ -74,10 +78,41 @@ class CartController extends Controller
                 'total' => $design->price,
             ]);
         }
-
+        $design->stock -= 1;
+        $design->save();
         // Update the total price of the cart
         $cart->updateTotal();
 
         return redirect()->back()->with('success', 'Item added to cart successfully!');
+    }
+
+    public function removeItem($id)
+    {
+        $user = Auth::user();
+        $cart = Cart::where('user_id', $user->id)->first();
+
+        if (!$cart) {
+            return redirect()->back()->with('error', 'Cart not found.');
+        }
+
+        $cartItem = CartItem::find($id);
+
+        if (!$cartItem || $cartItem->cart_id != $cart->id) {
+            return redirect()->back()->with('error', 'Cart item not found.');
+        }
+
+          // Increase the stock of the design
+          $design = $cartItem->design;
+          $design->stock += $cartItem->quantity;
+          $design->save();
+
+        // Update the cart's total price
+        $cart->totalPrice -= $cartItem->total;
+        $cart->save();
+
+        // Delete the cart item
+        $cartItem->delete();
+
+        return redirect()->back()->with('success', 'Item removed from cart successfully!');
     }
 }

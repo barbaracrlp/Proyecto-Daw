@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Checkout</h1>
+    <h1 style="color: white;">Checkout</h1>
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Order Summary</h5>
