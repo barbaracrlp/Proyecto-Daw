@@ -23,6 +23,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
-        Livewire::component('cart-dropdown', CartDropdown::class);
+        // Livewire::component('cart-dropdown', CartDropdown::class);
     }
 }

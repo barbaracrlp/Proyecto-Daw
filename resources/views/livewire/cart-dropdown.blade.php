@@ -1,8 +1,8 @@
 <div class="dropdown">
-    {{-- <button class="btn btn-secondary dropdown-toggle" type="button" id="cartDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="cartDropdown" data-bs-toggle="dropdown" aria-expanded="false">
         <i class="fa fa-shopping-cart"></i>
         <span class="badge badge-light">{{ $cart ? $cart->cartItems->count() : 'Cart' }}</span>
-    </button> --}}
+    </button>
     <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="cartDropdown">
         @if($cart && $cart->cartItems->count() > 0)
             <div class="cart-items">
