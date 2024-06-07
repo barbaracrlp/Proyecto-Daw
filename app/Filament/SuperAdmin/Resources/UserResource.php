@@ -2,22 +2,24 @@
 
 namespace App\Filament\SuperAdmin\Resources;
 
-use App\Filament\SuperAdmin\Resources\TypeResource\Pages;
-use App\Filament\SuperAdmin\Resources\TypeResource\RelationManagers;
-use App\Models\Type;
+use App\Filament\SuperAdmin\Resources\UserResource\Pages;
+use App\Filament\SuperAdmin\Resources\UserResource\RelationManagers;
+use App\Models\User;
 use Filament\Forms;
+use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\CheckboxColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class TypeResource extends Resource
+class UserResource extends Resource
 {
-    protected static ?string $model = Type::class;
+    protected static ?string $model = User::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -26,7 +28,15 @@ class TypeResource extends Resource
         return $form
             ->schema([
                 //
-                TextInput::make('name')->required(),
+                TextInput::make('username'),
+                TextInput::make('name'),
+                TextInput::make('surname1'),
+                TextInput::make('surname2'),
+                TextInput::make('phone'),
+                TextInput::make('brand'),
+                Checkbox::make('is_designer'),
+
+
             ]);
     }
 
@@ -35,14 +45,22 @@ class TypeResource extends Resource
         return $table
             ->columns([
                 //
-                TextColumn::make('name')->searchable()->sortable(),
+                TextColumn::make('username'),
+                TextColumn::make('name'),
+                TextColumn::make('surname1'),
+                TextColumn::make('surname2'),
+                TextColumn::make('brand'),
+                TextColumn::make('phone'),
+                CheckboxColumn::make('is_designer'),
+
+
+
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make()->requiresConfirmation(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -61,9 +79,9 @@ class TypeResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListTypes::route('/'),
-            'create' => Pages\CreateType::route('/create'),
-            'edit' => Pages\EditType::route('/{record}/edit'),
+            'index' => Pages\ListUsers::route('/'),
+            'create' => Pages\CreateUser::route('/create'),
+            'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
     }
 }

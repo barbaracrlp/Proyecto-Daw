@@ -32,7 +32,7 @@ class CartResource extends Resource
                 //
                 TextInput::make('id')->label('Number of Cart'),
                 TextInput::make('user_id')->label('User'),
-                Select::make('state')->label('state')
+                Select::make('state')->label('State')
                     ->options([
                         'created' => 'Not Done',
                         'Payed' => 'Payed',

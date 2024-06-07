@@ -13,7 +13,7 @@
                     <h1 class="mb-4">{{ $design->name }}</h1>
                     <p class="price" style="font-size: 24px; font-weight: bold;">{{ $design->price }} €</p>
                     <p class="stock" style="margin-top: 10px;">Units Available: {{ $design->stock }}</p>
-                    <p class="stock" style="margin-top: 10px;">Brand {{ $design->user->brand }}</p>
+                    <p class="stock" style="margin-top: 10px;">-{{ $design->user->brand }} -</p>
 
                     <!-- Display expiration date if it exists -->
                     @if ($design->expiration)

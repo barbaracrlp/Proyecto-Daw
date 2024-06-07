@@ -62,7 +62,8 @@ class AdminPanelProvider extends PanelProvider
             ->navigationItems([
                 NavigationItem::make('Admin')
                 ->url('/superAdmin')
-                ->icon('heroicon-o-link'),
+                ->icon('heroicon-o-link')
+                ,
                 NavigationItem::make('Back')
                 ->url('/home')
                 ->icon('heroicon-o-arrow-uturn-left'),

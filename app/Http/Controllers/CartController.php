@@ -15,15 +15,6 @@ class CartController extends Controller
         return view('cart.index', compact('cart'));
     }
 
-    // public function checkout()
-    // {
-    //     if (Auth::check()) {
-    //         // Lógica para proceder al checkout
-    //         return view('cart.checkout');
-    //     } else {
-    //         return redirect()->route('login')->with('message', 'Please login to proceed with the purchase.');
-    //     }
-    // }
     public function checkout()
     {
         $user = Auth::user();
@@ -55,8 +46,15 @@ class CartController extends Controller
         $user = Auth::user();
 
         // Check if the user has a cart, if not, create one
-        $cart = Cart::firstOrCreate(
-            ['user_id' => $user->id],
+        // $cart = Cart::firstOrCreate(
+        //     ['user_id' => $user->id],
+        //     ['totalPrice' => 0]
+        // );
+
+        $cart = Cart::where('user_id', $user->id)
+        ->where('state', 'created')
+        ->firstOrCreate(
+            ['user_id' => $user->id, 'state' => 'created'],
             ['totalPrice' => 0]
         );
 

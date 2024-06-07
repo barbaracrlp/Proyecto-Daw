@@ -14,6 +14,7 @@ class Cart extends Model
     protected $fillable=[
         'user_id',
         'totalPrice',
+        'state',
     ];
 
     public function cartItems():HasMany

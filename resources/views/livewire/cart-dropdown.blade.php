@@ -23,6 +23,7 @@
                 <li><a href="{{ route('cart.checkout') }}" class="dropdown-item text-center text-primary">
                     Buy Now
                 </a></li>
+
             </div>
         @else
             <li class="dropdown-item">Cart Empty</li>

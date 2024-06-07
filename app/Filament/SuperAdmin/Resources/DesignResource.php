@@ -67,6 +67,8 @@ class DesignResource extends Resource
 
                 FileUpload::make('file_path')->label('Image')->required()->imageEditor()->columnSpanFull(),
                 DatePicker::make('expiration')->label('Expiration')->displayFormat('d-m-Y')->native(false)->default(null),
+                DatePicker::make('created_at')->displayFormat('d-m-Y')->native(false),
+                DatePicker::make('updated_at')->displayFormat('d-m-Y')->native(false),
 
 
             ]);
@@ -77,12 +79,14 @@ class DesignResource extends Resource
         return $table
             ->columns([
                 //
-            TextColumn::make('Brand'),
-            TextColumn::make('name'),
-            TextColumn::make('price')->money('EUR'),
+            TextColumn::make('user.username')->searchable()->sortable(),
+            TextColumn::make('name')->searchable()->sortable(),
+            TextColumn::make('price')->money('EUR')->sortable(),
             TextColumn::make('file_path'),
             ImageColumn::make('file_path'),
             TextColumn::make('expiration')->date(),
+            TextColumn::make('created_at')->date()->sortable(),
+            TextColumn::make('updated_at')->date(),
             TextColumn::make('type.name')->label('Type'),
             TextColumn::make('collection.name')->label('collection'),
             TextColumn::make('categories.name')->label('Category'),
@@ -92,7 +96,7 @@ class DesignResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                DeleteAction::make(),
+                DeleteAction::make()->requiresConfirmation(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

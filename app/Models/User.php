@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable implements FilamentUser
 {
@@ -69,16 +70,11 @@ class User extends Authenticatable implements FilamentUser
 
     }
 
-    // public function designer():HasOne{
-    //     return $this->hasOne(Designer::class,'user_id');
-    // }
-
-    // public function brand():HasOne{
-    //     return $this->hasOne(Brand::class);
-    // }
 
     public function designs():HasMany{
         return $this->hasMany(Design::class);
     }
+
+
 
 }

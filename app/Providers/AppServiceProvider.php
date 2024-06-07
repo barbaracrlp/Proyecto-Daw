@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+
+use App\Http\Responses\LogoutResponse;
 use Illuminate\Support\ServiceProvider;
-use Livewire\Livewire;
-use App\Livewire\CartDropdown;
+use Filament\Http\Responses\Auth\Contracts\LogoutResponse as LogoutResponseContract;
+
 
 
 class AppServiceProvider extends ServiceProvider
@@ -15,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         //
+        $this->app->bind(LogoutResponseContract::class, LogoutResponse::class);
     }
 
     /**
@@ -22,7 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
-        // Livewire::component('cart-dropdown', CartDropdown::class);
+
     }
 }

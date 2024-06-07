@@ -36,14 +36,14 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 //
-                TextColumn::make('name'),
+                TextColumn::make('name')->searchable()->sortable(),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\DeleteAction::make()->requiresConfirmation(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

@@ -41,7 +41,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/admin" target="_blank">for Designers</a>
+                <a class="nav-link" href="/admin" >for Designers</a>
             </li>
 
             <li class="nav-item">
