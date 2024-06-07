@@ -21,6 +21,7 @@
         @include('layouts.nav')
     </header>
     <main class="container">
+        @include('messages')
         @yield('content')
         <button class="btn" style="background-color: #BDC3C7;;" onclick="goBack()">Back..</button>
     </main>
@@ -29,6 +30,18 @@
             window.history.back();
         }
     </script>
+     <!-- Include jQuery if not already included -->
+     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+     <script>
+         $(document).ready(function(){
+             // Hide the alert after 5 seconds
+             setTimeout(function(){
+                 $(".alert").fadeOut('slow', function(){
+                     $(this).remove();
+                 });
+             }, 3000); // 5000ms = 5 seconds
+         });
+     </script>
      @include('layouts.footer')
 </body>
 </html>

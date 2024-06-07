@@ -12,7 +12,9 @@
                 <div class="product-details" style="padding: 20px; background-color: #fff; color: #000; border-top: 1px solid #000;">
                     <h1 class="mb-4">{{ $design->name }}</h1>
                     <p class="price" style="font-size: 24px; font-weight: bold;">{{ $design->price }} €</p>
-                    <p class="stock" style="margin-top: 10px;">Stock: {{ $design->stock }}</p>
+                    <p class="stock" style="margin-top: 10px;">Units Available: {{ $design->stock }}</p>
+                    <p class="stock" style="margin-top: 10px;">Brand {{ $design->user->brand }}</p>
+
                     <!-- Display expiration date if it exists -->
                     @if ($design->expiration)
                         <p class="expiration" style="margin-top: 10px;">Expires on: {{ $design->expiration }}</p>

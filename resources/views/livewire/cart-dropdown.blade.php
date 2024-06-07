@@ -28,9 +28,4 @@
             <li class="dropdown-item">Cart Empty</li>
         @endif
     </ul>
-
-    <!-- Debugging Section -->
-    <div style="display: none;">
-        <pre>{{ print_r($cart, true) }}</pre>
-    </div>
 </div>

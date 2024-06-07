@@ -38,6 +38,7 @@ class DesignResource extends Resource
             ->schema([
                 //
                 TextInput::make('name')->required()->unique()->maxLength(50),
+                TextInput::make('brand')->required()->unique()->maxLength(50),
 
                 TextInput::make('price')->numeric()->required()->suffix('€'),
                 TextInput::make('stock')->numeric()->required(),
@@ -76,7 +77,8 @@ class DesignResource extends Resource
         return $table
             ->columns([
                 //
-                TextColumn::make('name'),
+            TextColumn::make('Brand'),
+            TextColumn::make('name'),
             TextColumn::make('price')->money('EUR'),
             TextColumn::make('file_path'),
             ImageColumn::make('file_path'),

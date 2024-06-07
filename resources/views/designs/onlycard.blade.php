@@ -6,7 +6,11 @@
                 <h4 class="card-title text-white mb-0" style="background-color: rgba(128, 128, 128, 0.5);padding:5px;">{{ $design->name }}</h4>
                 <a href="{{ route('designs.show', ['design' => $design->id]) }}" class="buton-view btn btn-sm" style="background-color: #ccccb3; color: #000;">View</a>
             </div>
-        {{-- <div>
+
+        </div>
+    </div>
+</div>
+{{-- <div>
             <form method="POST" action="{{ route('cart-items.store', $design->id) }}" class="mt-auto">
                 @csrf
                 <div class="input-group">
@@ -16,6 +20,3 @@
             </form>
 
         </div> --}}
-        </div>
-    </div>
-</div>
