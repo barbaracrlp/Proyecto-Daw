@@ -18,7 +18,7 @@ class Collection extends Model
         'price',
     ];
 
-    public function design():HasMany
+    public function designs():HasMany
     {
         return $this->hasMany(Design::class);
     }

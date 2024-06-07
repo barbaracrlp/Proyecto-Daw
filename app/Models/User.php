@@ -75,6 +75,8 @@ class User extends Authenticatable implements FilamentUser
         return $this->hasMany(Design::class);
     }
 
-
+    public function collections():HasMany{
+        return $this->hasMany(Collection::class);
+    }
 
 }

@@ -44,6 +44,9 @@ Route::resource('designs', DesignController::class);
 Route::get('/category/{id}/designs',[CategoryController::class,'showdesigns'])->name('category.designs');
 
 Route::get('/type/{id}/designs',[TypeController::class,'showdesigns'])->name('type.designs');
+Route::get('/collection/{id}/designs',[CollectionController::class,'showdesigns'])->name('collection.designs');
+Route::get('/brand/{id}/designs',[DesignController::class,'showdesigns'])->name('user.designs');
+
 
 Route::resource('categories', CategoryController::class);
 Route::resource('types', TypeController::class);

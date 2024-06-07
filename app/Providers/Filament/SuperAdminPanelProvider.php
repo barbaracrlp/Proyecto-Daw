@@ -28,8 +28,9 @@ class SuperAdminPanelProvider extends PanelProvider
             ->id('superAdmin')
             ->path('superAdmin')
             ->login()
+
             ->colors([
-                'primary' => Color::Teal,
+                'primary' => Color::Purple,
             ])
             ->discoverResources(in: app_path('Filament/SuperAdmin/Resources'), for: 'App\\Filament\\SuperAdmin\\Resources')
             ->discoverPages(in: app_path('Filament/SuperAdmin/Pages'), for: 'App\\Filament\\SuperAdmin\\Pages')
@@ -59,6 +60,9 @@ class SuperAdminPanelProvider extends PanelProvider
             ->navigationItems([
                 NavigationItem::make('Back')
                 ->url('/admin')
+                ->icon('heroicon-o-arrow-uturn-left'),
+                NavigationItem::make('Back to Treasure')
+                ->url('/home')
                 ->icon('heroicon-o-arrow-uturn-left'),
             ]);
     }

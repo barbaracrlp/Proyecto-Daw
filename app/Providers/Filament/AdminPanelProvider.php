@@ -30,6 +30,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->darkMode(false)
             ->registration(Register::class)
 
             ->colors([
@@ -64,7 +65,7 @@ class AdminPanelProvider extends PanelProvider
                 ->url('/superAdmin')
                 ->icon('heroicon-o-link')
                 ,
-                NavigationItem::make('Back')
+                NavigationItem::make('Back to Treasure')
                 ->url('/home')
                 ->icon('heroicon-o-arrow-uturn-left'),
             ]);

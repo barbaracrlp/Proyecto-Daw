@@ -62,4 +62,25 @@ class CollectionController extends Controller
     {
         //
     }
+
+    public function showDesigns($id)
+    {
+        // Encuentra el tipo o lanza una excepción si no se encuentra
+        $collection = collection::findOrFail($id);
+
+        // Obtén todos los diseños asociados a este tipo
+        $designs = $collection->designs;
+
+        // Si no hay diseños asociados a este tipo
+        if ($designs->isEmpty()) {
+            // Pasa el mensaje a la vista
+            $message = 'No designs found';
+
+            // Devuelve la vista con el mensaje
+            return view('collection.designs', compact('collection', 'message'));
+        }
+
+        // Devuelve la vista con el tipo y los diseños
+        return view('collection.designs', compact('collection', 'designs'));
+    }
 }

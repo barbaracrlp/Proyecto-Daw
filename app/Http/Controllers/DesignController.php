@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Design;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DesignController extends Controller
@@ -64,5 +65,26 @@ class DesignController extends Controller
     public function destroy(Design $design)
     {
         //
+    }
+
+    public function showDesigns($id)
+    {
+        // Encuentra el tipo o lanza una excepción si no se encuentra
+        $user = User::findOrFail($id);
+
+        // Obtén todos los diseños asociados a este tipo
+        $designs = $user->designs;
+
+        // Si no hay diseños asociados a este tipo
+        if ($designs->isEmpty()) {
+            // Pasa el mensaje a la vista
+            $message = 'No designs found';
+
+            // Devuelve la vista con el mensaje
+            return view('designs.designs', compact('user', 'message'));
+        }
+
+        // Devuelve la vista con el tipo y los diseños
+        return view('designs.designs', compact('user', 'designs'));
     }
 }

@@ -29,6 +29,25 @@
                 </ul>
             </li>
 
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Brands</a>
+                <ul class="dropdown-menu">
+                    @foreach (App\Models\User::where('is_designer', true)->get() as $user)
+                    <li><a class="dropdown-item" href="{{ route('user.designs', $user->id) }}">{{ $user->brand }}</a></li>
+                @endforeach
+                </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Collections</a>
+                <ul class="dropdown-menu">
+                    @foreach (App\Models\Collection::all() as $collection)
+                    <li><a class="dropdown-item" href="{{ route('collection.designs', $collection->id) }}">{{ $collection->name }}</a></li>
+                @endforeach
+                </ul>
+            </li>
+
+
             <li class="nav-item">
                 @auth
                     <form style="display:inline;" method="POST" action="{{ route('logout') }}">
