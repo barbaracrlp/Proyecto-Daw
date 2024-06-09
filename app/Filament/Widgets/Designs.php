@@ -15,7 +15,7 @@ class Designs extends BaseWidget
     {
         return $table
             ->query(
-                Design::query()->latest()
+                Design::query()->where('user_id', auth()->id())
             )
             ->columns([
                 // ...
