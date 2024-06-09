@@ -9,11 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
-    public function index()
-    {
-        $cart = Cart::where('user_id', Auth::id())->with('cartItems')->first();
-        return view('cart.index', compact('cart'));
-    }
 
     public function checkout()
     {
@@ -44,12 +39,6 @@ class CartController extends Controller
             return redirect()->back()->with('sorry', 'Item out of stock');
         }
         $user = Auth::user();
-
-        // Check if the user has a cart, if not, create one
-        // $cart = Cart::firstOrCreate(
-        //     ['user_id' => $user->id],
-        //     ['totalPrice' => 0]
-        // );
 
         $cart = Cart::where('user_id', $user->id)
         ->where('state', 'created')
@@ -110,6 +99,11 @@ class CartController extends Controller
 
         // Delete the cart item
         $cartItem->delete();
+
+           // Check if the cart is empty
+           if ($cart->cartItems->isEmpty()) {
+            return redirect()->route('home')->with('success', 'Item removed from cart successfully! Your cart is now empty.');
+        }
 
         return redirect()->back()->with('success', 'Item removed from cart successfully!');
     }

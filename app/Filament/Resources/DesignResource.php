@@ -37,7 +37,7 @@ class DesignResource extends Resource
         return $form
             ->schema([
                 //
-                TextInput::make('name')->required()->unique()->maxLength(50),
+                TextInput::make('name')->required()->maxLength(50),
 
                 TextInput::make('price')->numeric()->required()->suffix('€'),
                 TextInput::make('stock')->numeric()->required(),

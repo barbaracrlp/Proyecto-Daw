@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('designs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // Define the foreign key constraint
-            $table->string('name')->unique();
+            $table->string('name');
             $table->foreignId('collection_id')->nullable()->constrained('collections')->onDelete('set null');
             $table->integer('stock');
             $table->foreignId('type_id')->nullable()->constrained('types')->onDelete('set null');

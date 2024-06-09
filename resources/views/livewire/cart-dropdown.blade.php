@@ -10,13 +10,14 @@
                     <li><a href="{{ route('designs.show', $item->design->id) }}" class="dropdown-item">
                         {{ $item->design->name }} - {{ $item->quantity }} x {{ $item->design->price }}$
                     </a>
-                    <form method="POST" action="{{ route('cart.removeItem', $item->id) }}">
+                    {{-- <form method="POST" action="{{ route('cart.removeItem', $item->id) }}">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-link p-0 text-danger">
                             <i class="fa fa-trash">Delete</i>
-                        </button>
-                    </form></li>
+                        </button> --}}
+                    </form>
+                </li>
 
                 @endforeach
                 <div class="dropdown-divider"></div>

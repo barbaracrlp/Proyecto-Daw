@@ -37,8 +37,8 @@ class DesignResource extends Resource
         return $form
             ->schema([
                 //
-                TextInput::make('name')->required()->unique()->maxLength(50),
-                TextInput::make('brand')->required()->unique()->maxLength(50),
+                TextInput::make('name')->required()->maxLength(50),
+                // TextInput::make('user.brand')->required()->unique()->maxLength(50),
 
                 TextInput::make('price')->numeric()->required()->suffix('€'),
                 TextInput::make('stock')->numeric()->required(),
@@ -82,7 +82,7 @@ class DesignResource extends Resource
             TextColumn::make('user.username')->searchable()->sortable(),
             TextColumn::make('name')->searchable()->sortable(),
             TextColumn::make('price')->money('EUR')->sortable(),
-            TextColumn::make('file_path'),
+            // TextColumn::make('file_path'),
             ImageColumn::make('file_path'),
             TextColumn::make('expiration')->date(),
             TextColumn::make('created_at')->date()->sortable(),

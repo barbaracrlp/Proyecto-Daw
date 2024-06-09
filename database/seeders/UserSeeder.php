@@ -52,6 +52,7 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('12345678'), // Hashear la contraseña
                 'phone' => '0987654321',
                 'is_designer' => false,
+                'brand'=>null,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

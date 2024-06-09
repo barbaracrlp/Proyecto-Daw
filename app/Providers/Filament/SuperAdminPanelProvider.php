@@ -56,6 +56,7 @@ class SuperAdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+
             ])
             ->navigationItems([
                 NavigationItem::make('Back')
