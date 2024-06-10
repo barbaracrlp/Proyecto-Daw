@@ -44,7 +44,7 @@ class DesignResource extends Resource
 
                 Select::make('collection_id')
                     ->relationship('collection', 'name')
-                    ->options(Collection::all()->pluck('name', 'id')->toArray())
+                    ->options(Collection::where('user_id', auth()->id())->pluck('name', 'id')->toArray())
                     ->preload()
                     ->native(false),
 

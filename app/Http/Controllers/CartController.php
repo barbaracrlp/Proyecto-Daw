@@ -13,7 +13,10 @@ class CartController extends Controller
     public function checkout()
     {
         $user = Auth::user();
-        $cart = Cart::where('user_id', $user->id)->first();
+        $cart =  Cart::where('user_id', $user->id)
+        ->where('state', 'created')
+        ->with('cartItems.design')
+        ->first();
 
         if (!$cart || $cart->cartItems->count() == 0) {
             return redirect()->back()->with('error', 'Your cart is empty.');
@@ -76,7 +79,10 @@ class CartController extends Controller
     public function removeItem($id)
     {
         $user = Auth::user();
-        $cart = Cart::where('user_id', $user->id)->first();
+        $cart =  Cart::where('user_id', $user->id)
+        ->where('state', 'created')
+        ->with('cartItems.design')
+        ->first();
 
         if (!$cart) {
             return redirect()->back()->with('error', 'Cart not found.');

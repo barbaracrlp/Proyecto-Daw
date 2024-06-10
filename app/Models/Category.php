@@ -11,7 +11,7 @@ class Category extends Model
     use HasFactory;
 
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name','user_id'];
 
     public function designs():BelongsToMany
     {
