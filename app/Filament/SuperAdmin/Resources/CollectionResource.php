@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\SuperAdmin\Resources;
 
-use App\Filament\Resources\CollectionResource\Pages;
-use App\Filament\Resources\CollectionResource\RelationManagers;
+use App\Filament\SuperAdmin\Resources\CollectionResource\Pages;
+use App\Filament\SuperAdmin\Resources\CollectionResource\RelationManagers;
 use App\Models\Collection;
 use Filament\Forms;
 use Filament\Forms\Components\Hidden;
@@ -34,7 +34,7 @@ class CollectionResource extends Resource
                 TextInput::make('name'),
                 Textarea::make('description'),
                 Hidden::make('user_id')->default(Auth::id()),
-
+                // TextInput::make('user.name')->disabled(),
             ]);
     }
 
@@ -43,22 +43,17 @@ class CollectionResource extends Resource
         return $table
             ->columns([
                 //
+                TextColumn::make('user.username')->searchable()->sortable(),
                 TextColumn::make('name')
                 ->sortable()
                 ->searchable(),
                 TextColumn::make('description'),
-                // TextColumn::make('price')->money('EUR')->sortable(),
-
             ])
-            ->modifyQueryUsing(function(Builder $query){
-                return $query->where('user_id', auth()->id());
-            })
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

@@ -106,10 +106,13 @@ class CartController extends Controller
         // Delete the cart item
         $cartItem->delete();
 
-           // Check if the cart is empty
-           if ($cart->cartItems->isEmpty()) {
-            return redirect()->route('home')->with('success', 'Item removed from cart successfully! Your cart is now empty.');
-        }
+          // Reload the cart to get the updated cart items
+    $cart->load('cartItems');
+
+    // Check if the cart is empty
+    if ($cart->cartItems->isEmpty()) {
+        return redirect()->route('home')->with('success', 'Item removed from cart successfully! Your cart is now empty.');
+    }
 
         return redirect()->back()->with('success', 'Item removed from cart successfully!');
     }

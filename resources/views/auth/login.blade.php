@@ -3,7 +3,7 @@
     {{-- redirect to the register --}}
     <div class="mb-4">
         <span class="text-gray-600">Not Having an account? </span>
-        <a href="/admin/register" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Register here</a>
+        <a href="/register" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Register here</a>
     </div>
 
 
