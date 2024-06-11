@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/add-to-cart/{design}', [CartController::class, 'addToCart'])->name('cart.add');
     Route::get('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
     Route::delete('/cart/remove/{id}', [CartController::class, 'removeItem'])->name('cart.removeItem');
+    Route::resource('carts', CartController::class);
 
 });
 

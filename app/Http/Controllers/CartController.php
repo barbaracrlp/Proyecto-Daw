@@ -10,6 +10,16 @@ use Illuminate\Support\Facades\Auth;
 class CartController extends Controller
 {
 
+    public function show()
+    {
+        //
+        $carts = Cart::where('user_id', Auth::id())
+        ->where('state', '!=', 'created')
+        ->with('cartItems.design')
+        ->get();
+        return view('cart.show', compact('carts'));
+    }
+
     public function checkout()
     {
         $user = Auth::user();

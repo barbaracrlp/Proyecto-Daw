@@ -66,6 +66,13 @@
             <li class="nav-item">
                 <livewire:cart-dropdown/>
             </li>
+
+            <li class="nav-item">
+                @auth
+                        <a href="/carts/index"  class="nav-link"><strong>My orders</strong></a>
+
+                @endauth
+            </li>
         </ul>
     </div>
 </nav>
