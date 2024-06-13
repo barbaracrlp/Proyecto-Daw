@@ -76,8 +76,8 @@ class DesignResource extends Resource
         return $table
         ->columns([
             //
-            TextColumn::make('name'),
-            TextColumn::make('price')->money('EUR'),
+            TextColumn::make('name')->searchable()->sortable(),
+            TextColumn::make('price')->money('EUR')->sortable(),
             TextColumn::make('file_path'),
             ImageColumn::make('file_path'),
             TextColumn::make('expiration')->date(),

@@ -1,66 +1,70 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Raven’s Treasure
 
-## About Laravel
+## Descripción
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+El nombre de la aplicación es “Raven’s Treasure”. La idea detrás de este nombre proviene del comportamiento de los cuervos, conocidos por recoger y guardar objetos brillantes y valiosos, que consideran sus ‘tesoros’, en sus nidos. Esta analogía refleja perfectamente el propósito de la plataforma: así como los cuervos atesoran sus hallazgos, la web, representada por el metafórico ‘Raven’, atesora y muestra los diseños.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**En “Raven’s Treasure”, cada diseño es un tesoro.**
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+La plataforma actúa como un nido donde los diseñadores pueden guardar sus tesoros a la vez que los exhiben a potenciales compradores.
 
-## Learning Laravel
+La plataforma no solo se limita a ser un escaparate para estos tesoros, sino que también ofrece a los compradores la oportunidad de descubrir y adquirir prendas exclusivas y originales que no se encuentran en las tiendas convencionales. Así, “Raven’s Treasure” conecta a diseñadores apasionados con consumidores que buscan algo especial y diferente, creando una comunidad vibrante y dinámica.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Al igual que un cuervo que cuida y exhibe sus tesoros, “Raven’s Treasure” asegura que cada diseño sea presentado de la mejor manera posible. Los diseñadores pueden definir diversos atributos de sus productos, como el precio, las categorías, el tipo de prenda, entre otros, asegurando que cada artículo tenga la visibilidad y el detalle que merece.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Los diseños también se podrán filtrar por Categorías, Colecciones, Tipo de prenda o por la marca de Diseñador.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+En resumen, “Raven’s Treasure” es un espacio donde los diseños únicos y valiosos de los diseñadores independientes son cuidadosamente guardados y presentados como los auténticos tesoros que son, esperando a ser descubiertos y apreciados por los compradores.
 
-## Laravel Sponsors
+## Características Principales
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- **Exposición de Diseños:** Los diseñadores pueden subir y mostrar sus creaciones a una audiencia global.
+- **Atributos Personalizables:** Posibilidad de definir el precio, categorías, tipo de prenda, entre otros detalles para cada diseño.
+- **Filtros de Búsqueda:** Los usuarios pueden filtrar los diseños por Categorías, Colecciones, Tipo de prenda y Marca de Diseñador.
+- **Comunidad Dinámica:** Conexión entre diseñadores apasionados y consumidores en busca de prendas únicas.
+- **Compra de Prendas:** Opción para que los compradores adquieran prendas exclusivas y originales.
 
-### Premium Partners
+## Instalación
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+1. Clona el repositorio:
+    ```sh
+    git clone https://github.com/tu_usuario/ravens-treasure.git
+    ```
+2. Navega al directorio del proyecto:
+    ```sh
+    cd ravens-treasure
+    ```
+3. Instala las dependencias:
+    ```sh
+    npm install
+    ```
+4. Inicia la aplicación:
+    ```sh
+    npm start
+    ```
 
-## Contributing
+## Uso
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. **Registro y Login:** Los diseñadores y compradores deben registrarse y loguearse para acceder a todas las funcionalidades.
+2. **Subida de Diseños:** Los diseñadores pueden subir sus diseños a la plataforma desde su panel de usuario.
+3. **Navegación y Búsqueda:** Los compradores pueden explorar los diseños usando los filtros disponibles.
+4. **Compra de Prendas:** Los compradores pueden añadir prendas a su carrito y realizar compras de manera segura.
 
-## Code of Conduct
+## Contribución
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Si deseas contribuir a “Raven’s Treasure”, por favor sigue los siguientes pasos:
 
-## Security Vulnerabilities
+1. Haz un fork del repositorio.
+2. Crea una nueva rama (`git checkout -b feature/nueva-funcionalidad`).
+3. Realiza tus cambios y haz commit (`git commit -m 'Agregar nueva funcionalidad'`).
+4. Sube los cambios a tu rama (`git push origin feature/nueva-funcionalidad`).
+5. Abre un Pull Request.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Licencia
 
-## License
+Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo LICENSE.md para más detalles.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+**“Raven’s Treasure” - Donde cada diseño es un tesoro esperando ser descubierto.**

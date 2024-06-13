@@ -37,13 +37,7 @@ class CartController extends Controller
         return view('cart.checkout', compact('cart'));
     }
 
-    public function purchase(Request $request)
-    {
-        $cart = Cart::where('user_id', Auth::id())->first();
-        // Implementar lógica de compra aquí, como procesar el pago y vaciar el carrito
 
-        return redirect()->route('cart.index')->with('success', 'Purchase completed successfully.');
-    }
 
     public function addToCart(Design $design)
     {
@@ -123,7 +117,6 @@ class CartController extends Controller
     if ($cart->cartItems->isEmpty()) {
         return redirect()->route('home')->with('success', 'Item removed from cart successfully! Your cart is now empty.');
     }
-
         return redirect()->back()->with('success', 'Item removed from cart successfully!');
     }
 }

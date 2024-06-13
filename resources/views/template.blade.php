@@ -39,7 +39,7 @@
                  $(".alert").fadeOut('slow', function(){
                      $(this).remove();
                  });
-             }, 3000); // 5000ms = 5 seconds
+             }, 5000); // 5000ms = 5 seconds
          });
      </script>
      @include('layouts.footer')

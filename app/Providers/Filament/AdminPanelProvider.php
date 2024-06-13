@@ -32,7 +32,6 @@ class AdminPanelProvider extends PanelProvider
             ->login()
             ->darkMode(false)
             ->registration(Register::class)
-
             ->colors([
                 'primary' => Color::Teal,
             ])

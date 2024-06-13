@@ -16,8 +16,7 @@ class DesignController extends Controller
         //
         $designs = Design::with(['collection', 'type', 'categories', 'user'])->get();
         return view('designs.index', compact('designs'));
-        // $designs = Design::all();
-        // return view('designs.index', compact('designs'));
+
     }
 
     /**
@@ -39,13 +38,7 @@ class DesignController extends Controller
         return view('designs.show', compact('design'));
     }
 
-    /**
-     * Display the specified resource.
-     */
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Design $design)
     {
         //

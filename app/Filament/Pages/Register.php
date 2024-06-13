@@ -28,7 +28,7 @@ class Register extends BaseRegister
                         $this->getPasswordFormComponent(),
                         $this->getPasswordConfirmationFormComponent(),
                         $this->getDesignerFormComponent(),
-                        $this->getLoginFormComponent(),
+                        // $this->getLoginFormComponent(),
                         $this->getBrandFormComponent(),
                     ])
                     ->statePath('data'),
@@ -49,13 +49,13 @@ class Register extends BaseRegister
 
 
 
-    protected function getLoginFormComponent(): Component
-    {
-        return Toggle::make('log_in')
-            ->label('Login')
-            ->hidden()
-            ->autofocus();
-    }
+    // protected function getLoginFormComponent(): Component
+    // {
+    //     return Toggle::make('log_in')
+    //         ->label('Login')
+    //         ->hidden()
+    //         ->autofocus();
+    // }
 
     protected function getUserNameFormComponent(): Component
     {
