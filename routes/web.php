@@ -16,20 +16,10 @@ Route::get('/', function () {
 });
 
 
-// Route::get('/home', 'DesignController@index')->name('home');
-
 Route::get('/home', [DesignController::class, 'index'])->name('home');
 
 
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::post('/add-to-cart/{design}', [CartController::class, 'addToCart'])->name('cart.add');
     Route::get('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
     Route::delete('/cart/remove/{id}', [CartController::class, 'removeItem'])->name('cart.removeItem');
@@ -41,9 +31,8 @@ Route::resource('collections', CollectionController::class);
 
 Route::resource('designs', DesignController::class);
 
-/**ruta para las categorias diseños */
-Route::get('/category/{id}/designs',[CategoryController::class,'showdesigns'])->name('category.designs');
 
+Route::get('/category/{id}/designs',[CategoryController::class,'showdesigns'])->name('category.designs');
 Route::get('/type/{id}/designs',[TypeController::class,'showdesigns'])->name('type.designs');
 Route::get('/collection/{id}/designs',[CollectionController::class,'showdesigns'])->name('collection.designs');
 Route::get('/brand/{id}/designs',[DesignController::class,'showdesigns'])->name('user.designs');

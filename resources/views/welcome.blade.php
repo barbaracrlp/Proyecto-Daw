@@ -22,7 +22,7 @@
     </header>
     <main>
         <div class="container">
-            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                         aria-current="true" aria-label="Slide 1"></button>

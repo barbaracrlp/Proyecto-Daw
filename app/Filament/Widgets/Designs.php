@@ -18,8 +18,7 @@ class Designs extends BaseWidget
                 Design::query()->where('user_id', auth()->id())
             )
             ->columns([
-                // ...
-                TextColumn::make('name'),
+            TextColumn::make('name'),
             TextColumn::make('price')->money('EUR'),
             TextColumn::make('file_path'),
             ImageColumn::make('file_path'),

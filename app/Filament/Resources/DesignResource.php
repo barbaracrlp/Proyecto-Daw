@@ -93,7 +93,7 @@ class DesignResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\DeleteAction::make()->requiresConfirmation(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
