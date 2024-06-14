@@ -39,9 +39,21 @@ En resumen, “Raven’s Treasure” es un espacio donde los diseños únicos y 
     ```sh
     npm install
     ```
-4. Inicia la aplicación:
+4. Migra a la base de datos:
     ```sh
-    npm start
+    php artisan migrate
+    ```
+5. Utiliza los seeders:
+    ```sh
+    php artisan db:seed
+    ```
+6. Configura el storage
+    ```sh
+    php artisan storage:link
+    ```
+7. Lanza en modo local:
+    ```sh
+    php artisan serve
     ```
 
 ## Uso
