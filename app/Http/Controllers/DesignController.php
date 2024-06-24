@@ -13,7 +13,6 @@ class DesignController extends Controller
      */
     public function index()
     {
-        //
         $designs = Design::with(['collection', 'type', 'categories', 'user'])->get();
         return view('designs.index', compact('designs'));
 
@@ -32,8 +31,6 @@ class DesignController extends Controller
      */
     public function show(Design $design)
     {
-        //
-        // return view('designs.show', compact('design'));
         $design->load(['collection', 'type', 'categories', 'user']);
         return view('designs.show', compact('design'));
     }

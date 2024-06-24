@@ -16,6 +16,7 @@ class Collection extends Model
         'description',
         'designer_id',
         'price',
+        'user_id',
     ];
 
     public function designs():HasMany

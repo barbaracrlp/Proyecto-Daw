@@ -33,7 +33,8 @@ class CollectionResource extends Resource
                 //
                 TextInput::make('name'),
                 Textarea::make('description'),
-                Hidden::make('user_id')->default(Auth::id()),
+                Hidden::make('user_id')->default(Auth::id())->required(),
+
 
             ]);
     }
@@ -51,7 +52,7 @@ class CollectionResource extends Resource
 
             ])
             ->modifyQueryUsing(function(Builder $query){
-                return $query->where('user_id', auth()->id());
+                return $query->where('user_id', Auth::id());
             })
             ->filters([
                 //
