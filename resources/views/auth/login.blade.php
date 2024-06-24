@@ -50,9 +50,9 @@
             <x-primary-button class="ms-3">
                 {{ __('Log in') }}
             </x-primary-button>
-            <x-primary-button class="ms-3" href="{{ route('home') }}">
+            {{-- <x-primary-button class="ms-3" href="/home">
                 {{ __('Home') }}
-            </x-primary-button>
+            </x-primary-button> --}}
         </div>
     </form>
 </x-guest-layout>
